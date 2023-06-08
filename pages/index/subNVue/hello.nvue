@@ -19,7 +19,7 @@
 		},
 		onReady() {
 			// uni.getStorageSync({
-				
+			
 			// 	key: 'id',
 			// 	success(res) {
 			// 		console.log(res.data)
@@ -29,11 +29,11 @@
 			// })
 			if (this.areaTxt == '') {
 				console.log("地址为空，设置为默认地址")
-				this.areaTxt = 'http://10.0.0.226/cad/terminal_scanner.php'
-			} else{
+				this.areaTxt = 'http://10.0.0.226/cad/terminal_tablet.php'
+			} else {
 				this.areaTxt = uni.getStorageSync('id');
 				console.log(this.areaTxt)
-			}			
+			}
 		},
 		onUnload() {
 			
@@ -80,21 +80,28 @@
 <style>
 	.hes {
 		/* position: fixed; */
-		top: 0;
-		left: 0;
+		/* top: 0rpx; */
+		/* left: 0; */
 		/* width: auto; */
 		border-color: red;
 		border-style: solid;
-		border-width: 1px;
-		border-radius: 20rpx;
+		border-width: 3px;
+		border-radius: 5rpx;
 	}
-		
+	
 	.content{
-		/* height: auto; */
-		margin: 30rpx;
+		height: 50spx;
+		justify-content: center;
+		margin: 5rpx;
 		border-color: blue;
 		border-style: solid;
-		border-width: 1px;
+		border-width: 2px;
+	}
+	
+	.uni-dialog-input {
+		font-size: 20px;
+		margin-top: -5px;
+		margin-bottom: -5px;
 	}
 	
 </style>

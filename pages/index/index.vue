@@ -16,7 +16,7 @@
 			</view>
 		</view>	 -->
 		
-		<web-view :src="url" fullscreen="false" update-title="false"></web-view>
+		<web-view :src="url"></web-view>
 		<!-- <web-view src="http://192.168.50.97/oa2/cad/terminal_scanner.php"></web-view> -->
 			
 <!-- 		<nav>
@@ -58,9 +58,7 @@
 				wv: "",
 				url: '',
 				currentWebview: null,
-				isEditStatus: true,
 				areaTxt: '',
-				feedbackContent: '',
 			};
 		},
 		onBackPress() {
@@ -144,7 +142,7 @@
 			// 	    }.bind(this)//可处理uni.shuowModal的异步（即拿不到data里面数据的解决办法）
 			// 	});
 			// },
-				
+			
 			test(){
 				var wv = this.$scope.$getAppWebview().children()[0]
 				wv.evalJS(`aaa(${JSON.stringify(this.code)})`)
@@ -168,113 +166,41 @@
 			// currentWebview.setTitleNViewButtonStyle(e.index, {
 			// 	text:rightText
 			// });
-			if (e.index === 1) {
+			if (e.index === 0) {
+				console.log("你点击了设置页面按钮")
+				this.openWindows()
+			} else if(e.index === 1) {
 				console.log("你点击了刷新按钮")
 				var wv = this.$scope.$getAppWebview().children()[0]
 				wv.reload(true)
-			} else {
-				console.log("你点击了设置页面按钮")
-				this.openWindows()
+			} else if(e.index === 2) {
+				console.log("你点击了扫码按钮")
+				uni.scanCode({
+					success: (res) => {
+						this.code = res.result
+						console.log(res.result)
+						console.log(this.code)
+						var wv = this.$scope.$getAppWebview().children()[0]
+						wv.evalJS(`aaa(${JSON.stringify(this.code)})`)
+					},
+				})
 			}
 		},
-		
 		
 	}
 </script>
 
 <style>
-	.content {
+/* 	.content {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-	}
+	} */
 
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin-top: 200rpx;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 50rpx;
-	}
-
-	.text-area {
-		display: flex;
-		justify-content: center;
-	}
-
-	.title {
+/* 	.title {
 		font-size: 36rpx;
 		color: #8f8f94;
-	}
-	
-	.uni-popup-dialog {
-		width: 300px;
-		border-radius: 11px;
-		border-style: double;
-		background-color: #fff;
-	}
-	
-	.uni-dialog-content {
-		/* #ifndef APP-NVUE */
-		display: flex;
-		/* #endif */
-		flex-direction: row;
-		justify-content: center;
-		align-items: center;
-		padding: 20px;
-	}
-	
-	.uni-dialog-content-text {
-		font-size: 14px;
-		color: #6C6C6C;
-	}
-	
-	.uni-dialog-input {
-		flex: 1;
-		font-size: 14px;
-		border: 1px #eee solid;
-		height: 40px;
-		padding: 0 10px;
-		border-radius: 5px;
-		color: #555;
-	}
-	
-	.uni-dialog-button-group {
-		/* #ifndef APP-NVUE */
-		display: flex;
-		/* #endif */
-		flex-direction: row;
-		border-top-color: #f5f5f5;
-		border-top-style: solid;
-		border-top-width: 1px;
-	}
-	
-	.uni-dialog-button {
-		/* #ifndef APP-NVUE */
-		display: flex;
-		/* #endif */
-	
-		flex: 1;
-		flex-direction: row;
-		justify-content: center;
-		align-items: center;
-		height: 45px;
-	}
-	
-	.uni-dialog-button-text {
-		font-size: 16px;
-		color: #333;
-	}
-	
-	.uni-border-left {
-		border-left-color: #f0f0f0;
-		border-left-style: solid;
-		border-left-width: 1px;
-	}
-	
-	.uni-button-color {
-		color: #007aff;
-	}
+	} */
+
 </style>

@@ -21,8 +21,14 @@
 						},
 						{
 							"text": "刷新",
-							"fontSize": "14"
+							"fontSize": "14",
+							"float": "left"
 							
+						},
+						{
+							"text": "扫码",
+							"fontSize": "14",
+							"float": "right"
 						}
 						]
 					},
@@ -33,9 +39,9 @@
 						"style": {
 							"margin": "auto",
 							"dock": "top",
-							"width": "80%",
-							"height": "250rpx",
-							"top": "200rpx"
+							"width": "60%",
+							"height": "130px",
+							"top": "20%"
 						}
 					}]
 				}
@@ -46,7 +52,8 @@
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
+		"backgroundColor": "#F8F8F8",
+		"pageOrientation": "auto"
 	},
 	"uniIdRouter": {}
 }
