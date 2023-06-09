@@ -27,11 +27,11 @@
 			// 		console.log(this.areaTxt)
 			// 	}
 			// })
+			this.areaTxt = uni.getStorageSync('id');
 			if (this.areaTxt == '') {
 				console.log("地址为空，设置为默认地址")
 				this.areaTxt = 'http://10.0.0.226/cad/terminal_tablet.php'
 			} else {
-				this.areaTxt = uni.getStorageSync('id');
 				console.log(this.areaTxt)
 			}
 		},
